@@ -1,0 +1,52 @@
+# Local Supabase only. Hosted projects use dashboard settings described in docs/deployment.md.
+project_id = "forme-webapp-3"
+[api]
+enabled = true
+port = 56421
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+[db]
+port = 56422
+shadow_port = 56420
+major_version = 17
+[db.seed]
+enabled = false
+[db.pooler]
+enabled = false
+port = 56429
+[studio]
+enabled = true
+port = 56423
+api_url = "http://127.0.0.1"
+[inbucket]
+enabled = true
+port = 56424
+[storage]
+enabled = true
+file_size_limit = "20MiB"
+[auth]
+enabled = true
+site_url = "http://localhost:3001"
+additional_redirect_urls = []
+jwt_expiry = 3600
+enable_refresh_token_rotation = true
+enable_signup = false
+enable_anonymous_sign_ins = false
+[auth.email]
+# Enable the email provider; global auth.enable_signup remains false.
+enable_signup = true
+enable_confirmations = true
+max_frequency = "10s"
+otp_length = 6
+otp_expiry = 600
+[auth.email.template.magic_link]
+subject = "Forme ログイン用確認コード"
+content_path = "./supabase/templates/otp.html"
+[auth.email.template.confirmation]
+subject = "Forme メールアドレスの確認"
+content_path = "./supabase/templates/otp.html"
+[analytics]
+enabled = false
+[edge_runtime]
+enabled = false

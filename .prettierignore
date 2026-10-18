@@ -1,0 +1,16 @@
+node_modules
+.next
+.next-test
+.data
+tmp
+output
+package-lock.json
+public/pdfjs
+public/sample-form.json
+AGENTS.md
+next-env.d.ts
+
+.next-cloud-test
+.vercel
+supabase/.temp
+supabase/.branches

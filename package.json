@@ -1,0 +1,55 @@
+{
+  "name": "forme",
+  "version": "1.0.0",
+  "description": "PDF\u3092\u305d\u306e\u307e\u307e\u5165\u529b\u30fb\u56de\u53ce\u3067\u304d\u308b\u30d5\u30a9\u30fc\u30e0\u30ef\u30fc\u30af\u30b9\u30da\u30fc\u30b9",
+  "scripts": {
+    "dev": "next dev --hostname 0.0.0.0",
+    "build": "node scripts/check-env.mjs --if-vercel && next build",
+    "start": "next start --hostname 0.0.0.0",
+    "typecheck": "tsc --noEmit",
+    "test": "node --conditions=react-server --import tsx --test tests/*.test.ts",
+    "postinstall": "node scripts/setup.mjs",
+    "sample": "tsx scripts/create-sample.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check:env": "node --env-file-if-exists=.env.local scripts/check-env.mjs",
+    "legacy:export": "node --env-file-if-exists=.env.local scripts/export-legacy.mjs",
+    "test:smoke": "node scripts/smoke.mjs",
+    "supabase:start": "supabase start --exclude realtime,imgproxy,logflare,vector,supavisor,edge-runtime",
+    "supabase:stop": "supabase stop",
+    "supabase:env": "node scripts/local-env.mjs",
+    "test:cloud": "node --env-file=.env.local scripts/cloud-smoke.mjs",
+    "legacy:import": "node --env-file-if-exists=.env.local scripts/import-legacy.mjs"
+  },
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/noto-sans-jp": "^5.3.1",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
+    "lucide-react": "^1.59.0",
+    "next": "^16.4.2",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.4.299",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "server-only": "^0.0.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.10",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "prettier": "^3.9.10",
+    "supabase": "^2.121.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.13"
+  }
+}
